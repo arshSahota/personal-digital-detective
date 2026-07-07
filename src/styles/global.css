@@ -90,18 +90,11 @@ body {
 
 .hero h1 {
   font-size: 4rem;
-
   margin-bottom: 20px;
 
-  background: linear-gradient(
-    90deg,
-    #60a5fa,
-    #38bdf8
-  );
+  color: #60a5fa;
 
-  -webkit-background-clip: text;
-
-  color: transparent;
+  line-height: 1.1;
 }
 
 .hero p {

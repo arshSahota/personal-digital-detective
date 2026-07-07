@@ -1,3 +1,4 @@
+import detective from "../assets/detective.svg";
 const Dashboard = ({ entries = [] }) => {
 
   const books = entries.filter(
