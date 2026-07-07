@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 
@@ -8,15 +9,63 @@ import AddEntry from "./pages/AddEntry";
 import Analytics from "./pages/Analytics";
 
 function App() {
+  const [entries, setEntries] = useState(() => {
+    const savedEntries = localStorage.getItem("entries");
+
+    return savedEntries
+      ? JSON.parse(savedEntries)
+      : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(
+      "entries",
+      JSON.stringify(entries)
+    );
+  }, [entries]);
+
   return (
     <BrowserRouter>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/library" element={<Library />} />
-        <Route path="/add-entry" element={<AddEntry />} />
-        <Route path="/analytics" element={<Analytics />} />
+        <Route
+          path="/"
+          element={
+            <Dashboard
+              entries={entries}
+            />
+          }
+        />
+
+        <Route
+          path="/library"
+          element={
+            <Library
+              entries={entries}
+              setEntries={setEntries}
+            />
+          }
+        />
+
+        <Route
+          path="/add-entry"
+          element={
+            <AddEntry
+              entries={entries}
+              setEntries={setEntries}
+            />
+          }
+        />
+
+        <Route
+          path="/analytics"
+          element={
+            <Analytics
+              entries={entries}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

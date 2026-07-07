@@ -35,6 +35,7 @@ const AddEntry = () => {
 
       <form onSubmit={handleSubmit}>
         <input
+        className = "input"
           type="text"
           placeholder="Title"
           value={title}
@@ -47,6 +48,7 @@ const AddEntry = () => {
         <br />
 
         <input
+        className = "input"
           type="text"
           placeholder="Type"
           value={type}
@@ -59,6 +61,7 @@ const AddEntry = () => {
         <br />
 
         <input
+        className = "input"
           type="text"
           placeholder="Category"
           value={category}
@@ -71,6 +74,7 @@ const AddEntry = () => {
         <br />
 
         <input
+        className="input"
           type="number"
           placeholder="Rating"
           value={rating}
@@ -83,6 +87,7 @@ const AddEntry = () => {
         <br />
 
         <textarea
+        className = "input"
           placeholder="Notes"
           value={notes}
           onChange={(e) =>
@@ -93,7 +98,9 @@ const AddEntry = () => {
         <br />
         <br />
 
-        <button type="submit">
+        <button 
+        className = "button"
+        type="submit">
           Add Entry
         </button>
       </form>
